@@ -1,4 +1,4 @@
-## 맛집 공유 서비스 Frontend 샘플
+## Board example Frontend 샘플
 
 ---
 
