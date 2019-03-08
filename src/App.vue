@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <button>일반 버튼</button>
+    <button class="btn btn-primary">부트스트랩이 적용된 버튼</button>
+    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
