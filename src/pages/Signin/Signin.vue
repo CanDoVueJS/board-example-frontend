@@ -11,13 +11,15 @@
 
 <script>
 import SigninForm from '@/components/SigninForm/SigninForm'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Signin',
   methods: {
     submit (payload) {
-      console.log(payload)
-    }
+      this.signin(payload)
+    },
+    ...mapActions([ 'signin' ])
   },
   components: {
     SigninForm
