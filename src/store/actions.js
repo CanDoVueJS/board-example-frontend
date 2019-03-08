@@ -1,7 +1,11 @@
-import { EXAMPLE_MUTATION } from './mutation-types'
+import axios from 'axios'
 
 export default {
-  exampleAction ({ commit }) {
-    commit(EXAMPLE_MUTATION)
+  signin () {
+    axios.get('http://localhost:8000/signin').then(res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
   }
 }
