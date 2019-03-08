@@ -3,7 +3,7 @@
     @submit.prevent="submit">
     <fieldset>
       <input class="form-control"
-             v-model="id"
+             v-model="email"
              type="text"
              placeholder="이메일을 입력해주세요."/>
       <input class="form-control"
@@ -21,15 +21,15 @@ export default {
   name: 'SigninForm',
   data () {
     return {
-      id: '',
+      email: '',
       password: '',
       passwordConfirm: ''
     }
   },
   methods: {
     submit () {
-      const { id, password } = this
-      this.$emit('submit', { id, password })
+      const { email, password } = this
+      this.$emit('submit', { email, password })
     }
   }
 }
