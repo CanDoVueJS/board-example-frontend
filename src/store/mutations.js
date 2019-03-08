@@ -1,7 +1,9 @@
-import { EXAMPLE_MUTATION } from './mutation-types'
+import { SET_ACCESS_TOKEN } from './mutation-types'
 
 export default {
-  [EXAMPLE_MUTATION] (state) {
-    state.exampleState = true
+  [SET_ACCESS_TOKEN] (state, accessToken) {
+    if (accessToken) { // 방어코드
+      state.accessToken = accessToken
+    }
   }
 }
