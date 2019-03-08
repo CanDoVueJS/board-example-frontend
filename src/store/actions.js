@@ -1,9 +1,9 @@
-import axios from 'axios'
+import API from '@/api'
 import { SET_ACCESS_TOKEN } from './mutation-types'
 
 export default {
   signin ({ commit }, payload) {
-    axios.post('http://localhost:8000/api/auth/signin', {
+    API.post('/auth/signin', {
       email: payload.email,
       password: payload.password
     }).then(res => {
