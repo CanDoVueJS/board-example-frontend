@@ -1,3 +1,3 @@
 export default {
-  exampleState: false
+  accessToken: ''
 }
