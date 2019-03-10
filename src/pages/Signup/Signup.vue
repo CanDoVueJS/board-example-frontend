@@ -16,14 +16,14 @@ export default {
   methods: {
     onSubmitHandler (payload) {
       const { email, password, name } = payload
-      api.post('/api/auth/signup', { email, password, name })
+      api.post('/auth/signup', { email, password, name })
         .then(res => {
           alert('회원가입이 완료되었습니다.')
+          this.$router.push({ name: 'Signin' })
         })
         .catch(err => {
           alert(err.response.data.msg)
         })
-      console.log(payload)
     }
   },
   components: {
