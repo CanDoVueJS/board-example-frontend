@@ -9,7 +9,7 @@
       <input class="form-control"
              v-model="email"
              type="text"
-             placeholder="아이디를 입력해주세요."/>
+             placeholder="이메일을 입력해주세요."/>
       <input class="form-control"
              type="password"
              v-model="password"
