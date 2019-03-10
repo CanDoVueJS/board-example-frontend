@@ -1,5 +1,5 @@
 <template>
-<div class="bv-example-row bv-example-row-flex-cols container">
+<div class="container">
   <div class="row">
     <div class="col align-self-center">
       <h1>회원가입</h1>
