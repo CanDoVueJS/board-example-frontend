@@ -22,8 +22,7 @@ export default {
   data () {
     return {
       email: '',
-      password: '',
-      passwordConfirm: ''
+      password: ''
     }
   },
   methods: {
