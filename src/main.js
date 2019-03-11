@@ -8,11 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 Vue.config.productionTip = false
 
-setTimeout(function () {
-  // Example
-  store.dispatch('exampleAction')
-}, 1000)
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

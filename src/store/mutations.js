@@ -1,7 +1,12 @@
-import { EXAMPLE_MUTATION } from './mutation-types'
+import { SET_ACCESS_TOKEN } from './mutation-types'
+import api from '@/api'
 
 export default {
-  [EXAMPLE_MUTATION] (state) {
-    state.exampleState = true
+  [SET_ACCESS_TOKEN] (state, accessToken) {
+    if (accessToken) { // 방어코드
+      state.accessToken = accessToken
+      // 설명 필요
+      api.defaults.headers.common.Authorization = `jwt ${accessToken}`
+    }
   }
 }
