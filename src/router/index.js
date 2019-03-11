@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Signup from '../pages/Signup/Signup'
-import Signin from '@/pages/Signin/Signin'
+import Signup from '@/pages/Signup'
+import Signin from '@/pages/Signin'
 
 Vue.use(Router)
 

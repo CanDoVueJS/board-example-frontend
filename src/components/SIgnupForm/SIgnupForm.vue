@@ -14,12 +14,8 @@
              type="password"
              v-model="password"
              placeholder="비밀번호를 입력해주세요."/>
-      <input class="form-control"
-             type="password"
-             v-model="passwordConfirm"
-             placeholder="비밀번호를 다시 입력해주세요."/>
       <button type="submit"
-              class="btn btn-primary btn-block btn-lg">
+              class="btn btn-primary btn-block">
         회원가입
       </button>
     </fieldset>
@@ -39,7 +35,7 @@ export default {
   methods: {
     submit () {
       const { name, email, password } = this
-      this.$emit('onSubmitHandler', { name, email, password })
+      this.$emit('submit', { name, email, password })
     }
   }
 }

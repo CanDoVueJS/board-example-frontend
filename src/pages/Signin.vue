@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col align-self-center">
       <h1>로그인</h1>
-      <signin-form @submit="submit"></signin-form>
+      <signin-form @submit="onSubmit"></signin-form>
     </div>
   </div>
 </div>
@@ -16,7 +16,7 @@ import { mapActions } from 'vuex'
 export default {
   name: 'Signin',
   methods: {
-    submit (payload) {
+    onSubmit (payload) {
       this.signin(payload)
     },
     ...mapActions([ 'signin' ])

@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col align-self-center">
       <h1>회원가입</h1>
-      <signup-form @onSubmitHandler="onSubmitHandler"/>
+      <signup-form @submit="onSubmit"/>
     </div>
   </div>
 </div>
@@ -14,7 +14,7 @@ import SignupForm from '@/components/SignupForm/SignupForm'
 export default {
   name: 'Signup',
   methods: {
-    onSubmitHandler (payload) {
+    onSubmit (payload) {
       const { email, password, name } = payload
       api.post('/auth/signup', { name, email, password })
         .then(res => {
