@@ -1,6 +1,5 @@
 <template>
-  <form class="sign-up-form"
-        @submit.prevent="submit">
+  <form @submit.prevent="submit">
     <fieldset>
       <input class="form-control"
              v-model="name"
@@ -14,10 +13,7 @@
              type="password"
              v-model="password"
              placeholder="비밀번호를 입력해주세요."/>
-      <button type="submit"
-              class="btn btn-primary btn-block">
-        회원가입
-      </button>
+      <button type="submit">회원가입</button>
     </fieldset>
   </form>
 </template>
@@ -40,8 +36,3 @@ export default {
   }
 }
 </script>
-<style>
-  .sign-up-form fieldset input {
-    margin-bottom: 8px;
-  }
-</style>
