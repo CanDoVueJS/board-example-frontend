@@ -1,18 +1,13 @@
 <template>
-  <form class="sign-in-form"
-    @submit.prevent="submit">
+  <form @submit.prevent="submit">
     <fieldset>
-      <input class="form-control"
-             v-model="email"
+      <input v-model="email"
              type="text"
              placeholder="이메일을 입력해주세요."/>
-      <input class="form-control"
-             type="password"
+      <input type="password"
              v-model="password"
              placeholder="비밀번호를 입력해주세요."/>
-      <button type="submit" class="btn btn-primary btn-block btn-lg">
-        로그인
-      </button>
+      <button type="submit">로그인</button>
     </fieldset>
   </form>
 </template>
