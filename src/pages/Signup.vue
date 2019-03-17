@@ -1,12 +1,9 @@
 <template>
-<div class="container">
-  <div class="row">
-    <div class="col align-self-center">
-      <h1>회원가입</h1>
-      <signup-form @submit="onSubmit"/>
-    </div>
+  <div class="sign-up-page">
+    <h3>회원가입</h3>
+    <signup-form @submit="onSubmit"/>
+    <p>이미 가입하셨나요? <router-link :to="{ name: 'Signin' }">로그인 하러가기</router-link></p>
   </div>
-</div>
 </template>
 <script>
 import api from '@/api'
@@ -31,6 +28,3 @@ export default {
   }
 }
 </script>
-<style>
-
-</style>

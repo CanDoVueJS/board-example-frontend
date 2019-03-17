@@ -1,11 +1,8 @@
 <template>
-<div class="container">
-  <div class="row">
-    <div class="col align-self-center">
-      <h1>로그인</h1>
-      <signin-form @submit="onSubmit"></signin-form>
-    </div>
-  </div>
+<div class="sign-in-page">
+  <h3>로그인</h3>
+  <signin-form @submit="onSubmit"></signin-form>
+  <p>회원이 아니신가요? <router-link :to="{ name: 'Signup' }">회원가입 하러가기</router-link></p>
 </div>
 </template>
 
@@ -26,5 +23,3 @@ export default {
   }
 }
 </script>
-
-<style></style>
