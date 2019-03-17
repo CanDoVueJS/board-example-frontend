@@ -6,7 +6,7 @@ export default {
     if (accessToken) { // 방어코드
       state.accessToken = accessToken
       // 설명 필요
-      api.defaults.headers.common.Authorization = `jwt ${accessToken}`
+      api.defaults.headers.common.Authorization = `Bearer ${accessToken}`
     }
   }
 }
