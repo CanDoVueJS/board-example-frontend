@@ -28,12 +28,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-  .sign-in-form {
-    background-color: #fff;
-    border-radius: 4px;
-  }
-  .sign-in-form fieldset input {
-    margin-bottom: 8px;
-  }
-</style>
