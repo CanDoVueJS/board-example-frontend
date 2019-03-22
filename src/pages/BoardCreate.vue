@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import BoardCreateForm from '@/components/BoardCreateForm';
+import BoardCreateForm from '@/components/BoardCreateForm'
 
 export default {
   name: 'BoardCreate',
