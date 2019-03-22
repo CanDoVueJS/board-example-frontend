@@ -7,7 +7,7 @@
 </template>
 <script>
 import api from '@/api'
-import SignupForm from '@/components/SignupForm/SignupForm'
+import SignupForm from '@/components/SignupForm'
 export default {
   name: 'Signup',
   methods: {

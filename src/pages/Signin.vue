@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SigninForm from '@/components/SigninForm/SigninForm'
+import SigninForm from '@/components/SigninForm'
 import { mapActions } from 'vuex'
 
 export default {
