@@ -33,8 +33,6 @@ export default {
 </script>
 <style>
 .board-list {
-  width: 940px;
-  margin: 0 auto;
   background-color: #fff;
 }
 .board-list thead {
@@ -59,6 +57,7 @@ export default {
 .board-list tbody td {
   padding: 20px;
   font-weight: normal;
+  border-bottom: 1px solid #ededed;
 }
 .board-list tbody td:nth-child(2) {
   text-align: left;
