@@ -24,8 +24,7 @@ export default {
           if (err.response.status === 401) { // UnAuthorized
             alert('로그인이 필요합니다.')
             this.$router.push({ name: 'Signin' })
-          }
-          else {
+          } else {
             alert(err.response.data.msg)
           }
         })
