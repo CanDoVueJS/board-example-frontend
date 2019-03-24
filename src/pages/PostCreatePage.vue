@@ -1,24 +1,25 @@
 <template>
   <div class="board-create-page">
     <h3>게시물 작성하기</h3>
-    <board-create-form @submit="onSubmit"></board-create-form>
+    <post-create-form @submit="onSubmit"></post-create-form>
   </div>
 </template>
 
 <script>
 import api from '@/api'
-import BoardCreateForm from '@/components/BoardCreateForm'
+import PostCreateForm from '@/components/PostCreateForm'
 
 export default {
-  name: 'BoardCreate',
-  components: { BoardCreateForm },
+  name: 'PostCreate',
+  components: { PostCreateForm },
   methods: {
     onSubmit (payload) {
       const { title, contents } = payload
       api.post('/posts', { title, contents })
         .then(res => {
           alert('게시물이 성공적으로 작성되었습니다.')
-          console.log(res)
+          this.$router.push({ name: 'CommunityList' })
+          // 이후 BoardDetail 페이지가 생기면 내가 작성한 포스트의 페이지로 이동하도록 변경예정입니다.
         })
         .catch(err => {
           if (err.response.status === 401) { // UnAuthorized

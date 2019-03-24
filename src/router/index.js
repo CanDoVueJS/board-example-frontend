@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Signup from '@/pages/Signup'
 import Signin from '@/pages/Signin'
 import CommunityList from '@/pages/CommunityList'
-import BoardCreatePage from '@/pages/BoardCreatePage'
+import PostCreatePage from '@/pages/PostCreatePage'
 
 Vue.use(Router)
 
@@ -25,9 +25,9 @@ export default new Router({
       component: Signin
     },
     {
-      path: '/board/create',
+      path: '/post/create',
       name: 'BoardCreate',
-      component: BoardCreatePage
+      component: PostCreatePage
     }
   ]
 })
