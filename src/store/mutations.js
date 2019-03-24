@@ -1,4 +1,4 @@
-import {SET_ACCESS_TOKEN, SET_MY_INFO} from './mutation-types'
+import {DESTROY_ACCESS_TOKEN, DESTROY_MY_INFO, SET_ACCESS_TOKEN, SET_MY_INFO} from './mutation-types'
 import api from '@/api'
 
 export default {
@@ -13,5 +13,12 @@ export default {
     if (me) {
       state.me = me
     }
+  },
+  [DESTROY_ACCESS_TOKEN] (state) {
+    state.accessToken = ''
+    delete api.defaults.headers.common.Authorization
+  },
+  [DESTROY_MY_INFO] (state) {
+    state.me = null
   }
 }
