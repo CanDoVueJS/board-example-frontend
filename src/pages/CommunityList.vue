@@ -6,7 +6,7 @@
 </template>
 <script>
 import AppHeader from '@/components/AppHeader/AppHeader'
-import BoardList from '@/components/BoardList/BoardList'
+import BoardList from '@/components/BoardList'
 
 export default {
   name: 'CommunityList',
