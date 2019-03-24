@@ -9,7 +9,7 @@
         </button>
       </strong>
       <ul v-if="isActive">
-        <li><button>로그아웃</button></li>
+        <li><button @click="signout">로그아웃</button></li>
       </ul>
     </div>
     <div v-else>
@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'AppHeader',
@@ -34,7 +34,8 @@ export default {
   methods: {
     toggle () {
       this.isActive = !this.isActive
-    }
+    },
+    ...mapActions([ 'signout' ])
   }
 }
 </script>
