@@ -9,7 +9,7 @@ import AppHeader from '@/components/AppHeader/AppHeader'
 import BoardList from '@/components/BoardList/BoardList'
 
 export default {
-  name: 'CommunityList',
+  name: 'BoardListPage',
   components: {
     AppHeader,
     BoardList

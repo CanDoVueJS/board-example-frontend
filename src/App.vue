@@ -20,11 +20,14 @@ export default {
     height: 100%;
     background-color: #f9f9f9;
   }
-  html, body, div, input, fieldset, form, h1, p, textarea, button {
+  html, body, div, input, fieldset, form, h1, p, table, thead, th, tbody, td, textarea, button {
     margin: 0;
     padding: 0;
     border: 0;
     box-sizing: border-box;
+  }
+  table {
+    border-collapse: collapse;
   }
   textarea {
     border: none;
