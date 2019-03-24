@@ -1,7 +1,7 @@
 <template>
   <div class="board-create-page">
     <h3>게시물 작성하기</h3>
-    <post-create-form @submit="onSubmit"></post-create-form>
+    <post-create-form @submit="onSubmit"/>
   </div>
 </template>
 

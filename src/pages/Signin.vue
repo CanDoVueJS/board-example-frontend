@@ -1,7 +1,7 @@
 <template>
 <div class="sign-in-page">
   <h3>로그인</h3>
-  <signin-form @submit="onSubmit"></signin-form>
+  <signin-form @submit="onSubmit"/>
   <p>회원이 아니신가요? <router-link :to="{ name: 'Signup' }">회원가입 하러가기</router-link></p>
 </div>
 </template>
