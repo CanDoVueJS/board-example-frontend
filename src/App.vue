@@ -12,8 +12,8 @@ export default {
 
 <style>
   @import "https://use.fontawesome.com/releases/v5.6.3/css/all.css";
-  // 추후 스타일 작업이 완료되면 웹팩 빌드 후 다시 살려야함 - 2019.03.24 Evan
-  // 반드시 맨 위로 올릴 것. css의 @import 구문은 맨 위에 위치해야만 작동한다.
+  /*추후 스타일 작업이 완료되면 웹팩 빌드 후 다시 살려야함 - 2019.03.24 Evan*/
+  /*반드시 맨 위로 올릴 것. css의 @import 구문은 맨 위에 위치해야만 작동한다.*/
   /*@import 'http://localhost:8000/assets/index.css'*/
 
   html, body {
