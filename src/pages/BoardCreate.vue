@@ -1,6 +1,5 @@
 <template>
   <div>
-    BoardCreate
     <board-create-form></board-create-form>
   </div>
 </template>
