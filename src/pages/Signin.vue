@@ -1,7 +1,7 @@
 <template>
 <div class="sign-in-page">
   <h3>로그인</h3>
-  <signin-form @submit="onSubmit"></signin-form>
+  <signin-form @submit="onSubmit"/>
   <p>회원이 아니신가요? <router-link :to="{ name: 'Signup' }">회원가입 하러가기</router-link></p>
 </div>
 </template>
@@ -14,7 +14,12 @@ export default {
   name: 'Signin',
   methods: {
     onSubmit (payload) {
-      this.signin(payload)
+      this.signin(payload).then(res => {
+        alert('로그인이 완료되었습니다.')
+        this.$router.push({ name: 'CommunityList' })
+      }).catch(err => {
+        alert(err.response.data.msg)
+      })
     },
     ...mapActions([ 'signin' ])
   },
