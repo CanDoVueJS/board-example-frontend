@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import AppHeader from '@/components/AppHeader'
 import Signup from '@/pages/Signup'
 import Signin from '@/pages/Signin'
-import CommunityList from '@/pages/CommunityList'
+import BoardListPage from '@/pages/BoardListPage'
 import PostCreatePage from '@/pages/PostCreatePage'
 
 Vue.use(Router)
@@ -12,10 +12,10 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'CommunityList',
+      name: 'BoardListPage',
       components: {
         header: AppHeader,
-        default: CommunityList
+        default: BoardListPage
       }
     },
     {
