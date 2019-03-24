@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import AppHeader from '@/components/AppHeader'
 import Signup from '@/pages/Signup'
 import Signin from '@/pages/Signin'
 import CommunityList from '@/pages/CommunityList'
@@ -11,7 +12,10 @@ export default new Router({
     {
       path: '/',
       name: 'CommunityList',
-      component: CommunityList
+      components: {
+        header: AppHeader,
+        default: CommunityList
+      }
     },
     {
       path: '/signup',
