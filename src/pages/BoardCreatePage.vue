@@ -1,16 +1,36 @@
 <template>
   <div class="board-create-page">
     <h3>게시물 작성하기</h3>
-    <board-create-form></board-create-form>
+    <board-create-form @submit="onSubmit"></board-create-form>
   </div>
 </template>
 
 <script>
+import api from '@/api'
 import BoardCreateForm from '@/components/BoardCreateForm'
 
 export default {
   name: 'BoardCreate',
-  components: { BoardCreateForm }
+  components: { BoardCreateForm },
+  methods: {
+    onSubmit (payload) {
+      const { title, contents } = payload
+      api.post('/posts', { title, contents })
+        .then(res => {
+          alert('게시물이 성공적으로 작성되었습니다.')
+          console.log(res)
+        })
+        .catch(err => {
+          if (err.response.status === 401) { // UnAuthorized
+            alert('로그인이 필요합니다.')
+            this.$router.push({ name: 'Signin' })
+          }
+          else {
+            alert(err.response.data.msg)
+          }
+        })
+    }
+  }
 }
 </script>
 
