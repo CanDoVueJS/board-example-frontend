@@ -1,4 +1,4 @@
-import { SET_ACCESS_TOKEN } from './mutation-types'
+import {SET_ACCESS_TOKEN, SET_MY_INFO} from './mutation-types'
 import api from '@/api'
 
 export default {
@@ -7,6 +7,11 @@ export default {
       state.accessToken = accessToken
       // 설명 필요
       api.defaults.headers.common.Authorization = `Bearer ${accessToken}`
+    }
+  },
+  [SET_MY_INFO] (state, me) {
+    if (me) {
+      state.me = me
     }
   }
 }

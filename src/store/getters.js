@@ -1,5 +1,5 @@
 export default {
-  exampleGetter (state) {
-    return state.example
+  isAuthorized (state) {
+    return !!state.me
   }
 }

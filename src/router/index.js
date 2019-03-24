@@ -4,6 +4,7 @@ import AppHeader from '@/components/AppHeader'
 import Signup from '@/pages/Signup'
 import Signin from '@/pages/Signin'
 import CommunityList from '@/pages/CommunityList'
+import PostCreatePage from '@/pages/PostCreatePage'
 
 Vue.use(Router)
 
@@ -26,6 +27,14 @@ export default new Router({
       path: '/signin',
       name: 'Signin',
       component: Signin
+    },
+    {
+      path: '/post/create',
+      name: 'PostCreate',
+      components: {
+        header: AppHeader,
+        default: PostCreatePage
+      }
     }
   ]
 })

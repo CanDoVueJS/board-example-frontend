@@ -1,3 +1,4 @@
 export default {
-  accessToken: ''
+  accessToken: '',
+  me: null
 }
