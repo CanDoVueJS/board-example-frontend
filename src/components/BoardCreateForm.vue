@@ -7,8 +7,10 @@
              placeholder="게시물 제목을 입력해주세요." />
       <label>내용</label>
       <textarea v-model="contents"
+                rows="5"
                 placeholder="게시물 내용을 입력해주세요.">
       </textarea>
+      <button type="submit">제출하기</button>
     </fieldset>
   </form>
 </template>
