@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Signup from '@/pages/Signup'
 import Signin from '@/pages/Signin'
-import BoardList from '@/pages/BoardList'
+import CommunityList from '@/pages/CommunityList'
 
 Vue.use(Router)
 
@@ -10,8 +10,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Board',
-      component: BoardList
+      name: 'CommunityList',
+      component: CommunityList
     },
     {
       path: '/signup',
