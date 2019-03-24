@@ -60,7 +60,7 @@ export default {
   padding: 20px;
   font-weight: normal;
 }
-.board-list tbody td:nth-child(2), .board-list tbody td:nth-child(3) {
+.board-list tbody td:nth-child(2) {
   text-align: left;
 }
 </style>
