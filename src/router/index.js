@@ -30,8 +30,11 @@ export default new Router({
     },
     {
       path: '/post/create',
-      name: 'BoardCreate',
-      component: PostCreatePage
+      name: 'PostCreate',
+      components: {
+        header: AppHeader,
+        default: PostCreatePage
+      }
     }
   ]
 })
