@@ -14,7 +14,12 @@ export default {
   name: 'Signin',
   methods: {
     onSubmit (payload) {
-      this.signin(payload)
+      this.signin(payload).then(res => {
+        alert('로그인이 완료되었습니다.')
+        this.$router.push({ name: 'CommunityList' })
+      }).catch(err => {
+        alert(err.response.data.msg)
+      })
     },
     ...mapActions([ 'signin' ])
   },
