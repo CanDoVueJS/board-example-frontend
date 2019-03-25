@@ -16,19 +16,24 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td scope="col">1</td>
-          <td scope="col">제목입니다. [1]</td>
-          <td scope="col">홍길동</td>
-          <td scope="col">2018010101</td>
+        <tr v-for="post in posts" :key="post.id">
+          <td scope="col">{{ post.id }}</td>
+          <td scope="col"><router-link :to="{ name: 'BoardListPage' }">{{ post.title }}</router-link> [{{ post.comments.length }}]</td>
+          <td scope="col">{{ post.user.name }}</td>
+          <td scope="col">{{ post.createdAt }}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  name: 'BoardList'
+  name: 'BoardList',
+  computed: {
+    ...mapState([ 'posts' ])
+  }
 }
 </script>
 <style>

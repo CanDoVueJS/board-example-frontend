@@ -6,9 +6,16 @@
 </template>
 <script>
 import BoardList from '@/components/BoardList'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'CommunityList',
+  mounted () {
+    this.fetchPostList()
+  },
+  methods: {
+    ...mapActions(['fetchPostList'])
+  },
   components: { BoardList }
 }
 </script>
