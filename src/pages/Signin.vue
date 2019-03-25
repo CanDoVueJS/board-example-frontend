@@ -16,7 +16,7 @@ export default {
     onSubmit (payload) {
       this.signin(payload).then(res => {
         alert('로그인이 완료되었습니다.')
-        this.$router.push({ name: 'CommunityList' })
+        this.$router.push({ name: 'BoardListPage' })
       }).catch(err => {
         alert(err.response.data.msg)
       })
