@@ -1,11 +1,11 @@
 <template>
-  <div class="board-list">
+  <div>
     <table>
       <colgroup>
         <col style="width: 10%;"/>
         <col style="width: 60%"/>
-        <col style="width: 20%"/>
         <col style="width: 10%"/>
+        <col style="width: 20%"/>
       </colgroup>
       <thead>
         <tr>
@@ -27,44 +27,12 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
-
 export default {
   name: 'BoardList',
-  computed: {
-    ...mapState([ 'posts' ])
+  props: {
+    posts: {
+      type: Array
+    }
   }
 }
 </script>
-<style>
-.board-list {
-  background-color: #fff;
-}
-.board-list thead {
-  font-size: 14px;
-  font-weight: normal;
-  color: #fff;
-  background-color: #888;
-}
-.board-list thead th {
-  position: relative;
-  padding: 10px;
-}
-.board-list thead th:after {
-  content: '|';
-  position: absolute;
-  right: 0;
-  color: #c3b9b9;
-}
-.board-list thead th:last-child:after {
-  content: '';
-}
-.board-list tbody td {
-  padding: 20px;
-  font-weight: normal;
-  border-bottom: 1px solid #ededed;
-}
-.board-list tbody td:nth-child(2) {
-  text-align: left;
-}
-</style>
