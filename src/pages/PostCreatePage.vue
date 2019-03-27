@@ -10,7 +10,7 @@ import api from '@/api'
 import PostCreateForm from '@/components/PostCreateForm'
 
 export default {
-  name: 'PostCreate',
+  name: 'PostCreatePage',
   components: { PostCreateForm },
   methods: {
     onSubmit (payload) {

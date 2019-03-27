@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submit">
+  <form @submit.prevent="onSubmit">
     <fieldset>
       <label>제목</label>
       <input v-model="title"
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'BoardCreateForm',
+  name: 'PostCreateForm',
   data () {
     return {
       title: '',
@@ -25,7 +25,7 @@ export default {
     }
   },
   methods: {
-    submit () {
+    onSubmit () {
       const { title, contents } = this
       this.$emit('submit', { title, contents })
     }
