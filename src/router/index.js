@@ -21,12 +21,18 @@ export default new Router({
     {
       path: '/signup',
       name: 'Signup',
-      component: Signup
+      components: {
+        header: AppHeader,
+        default: Signup
+      }
     },
     {
       path: '/signin',
       name: 'Signin',
-      component: Signin
+      components: {
+        header: AppHeader,
+        default: Signin
+      }
     },
     {
       path: '/post/create',

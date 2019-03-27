@@ -1,5 +1,5 @@
 export default {
   isAuthorized (state) {
-    return !!state.me
+    return state.accessToken.length > 0 && !!state.me
   }
 }
