@@ -2,7 +2,8 @@ import {
   SET_ACCESS_TOKEN,
   SET_MY_INFO,
   DESTROY_ACCESS_TOKEN,
-  DESTROY_MY_INFO
+  DESTROY_MY_INFO,
+  FETCH_POST_LIST
 } from './mutation-types'
 import api from '@/api'
 import Cookies from 'js-cookie'
@@ -28,5 +29,8 @@ export default {
   },
   [DESTROY_MY_INFO] (state) {
     state.me = null
+  },
+  [FETCH_POST_LIST] (state, posts) {
+    state.posts = posts
   }
 }
