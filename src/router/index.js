@@ -44,11 +44,14 @@ export default new Router({
       }
     },
     {
-      path: '/post/edit/:id',
+      path: '/post/edit/:postId',
       name: 'PostEditPage',
       components: {
         header: AppHeader,
         default: PostEditPage
+      },
+      props: {
+        default: true
       }
     }
   ]

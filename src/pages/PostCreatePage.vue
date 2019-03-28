@@ -18,7 +18,7 @@ export default {
       api.post('/posts', { title, contents })
         .then(res => {
           alert('게시물이 성공적으로 작성되었습니다.')
-          this.$router.push({ name: 'CommunityList' })
+          this.$router.push({ name: 'BoardListPage' })
           // 이후 BoardDetail 페이지가 생기면 내가 작성한 포스트의 페이지로 이동하도록 변경예정입니다.
         })
         .catch(err => {
