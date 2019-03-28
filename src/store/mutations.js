@@ -1,4 +1,5 @@
 import {
+  FETCH_POST,
   SET_ACCESS_TOKEN,
   SET_MY_INFO,
   DESTROY_ACCESS_TOKEN,
@@ -32,5 +33,8 @@ export default {
   },
   [FETCH_POST_LIST] (state, posts) {
     state.posts = posts
+  },
+  [FETCH_POST] (state, post) {
+    state.post = post
   }
 }

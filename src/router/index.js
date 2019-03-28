@@ -20,7 +20,7 @@ export default new Router({
       }
     },
     {
-      path: '/post/',
+      path: '/post/:index',
       name: 'BoardViewPage',
       components: {
         header: AppHeader,
