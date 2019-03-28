@@ -3,15 +3,16 @@
     <h3>게시물 수정</h3>
     <post-edit-form
       v-if="post"
-      :init-title="post.title"
-      :init-contents="post.contents"
+      :post="post"
       @submit="onSubmit" />
+    <p v-else>게시물 불러오는 중...</p>
   </div>
 </template>
 
 <script>
 import PostEditForm from '@/components/PostEditForm'
 import api from '@/api'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'PostEditPage',
@@ -22,22 +23,10 @@ export default {
       required: true
     }
   },
-  data () {
-    return {
-      post: null
-    }
+  computed: {
+    ...mapState([ 'post' ])
   },
   methods: {
-    fetchPost () {
-      api.get(`/posts/${this.postId}`)
-        .then(res => {
-          this.post = res.data
-        })
-        .catch(err => {
-          alert(err.response.data.msg)
-          this.$router.back()
-        })
-    },
     onSubmit (payload) {
       const { title, contents } = payload
       api.put(`/posts/${this.postId}`, { title, contents })
@@ -57,10 +46,11 @@ export default {
             alert(err.response.data.msg)
           }
         })
-    }
+    },
+    ...mapActions([ 'fetchPost' ])
   },
   created () {
-    this.fetchPost()
+    this.fetchPost(this.postId)
   }
 }
 </script>

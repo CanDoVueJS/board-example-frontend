@@ -3,13 +3,13 @@
     <h1>포스트 상세 게시글</h1>
     <board-view v-if="post" :post="post"/>
     <p v-else>게시글 불러오는 중...</p>
+    <router-link :to="{ name: 'PostEditPage', params: { postId } }">수정</router-link>
     <router-link :to="{ name: 'BoardListPage' }">목록</router-link>
   </div>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
 import BoardView from '@/components/BoardView'
-import store from '@/store'
 
 export default {
   name: 'BoardViewPage',
@@ -23,7 +23,7 @@ export default {
     ...mapState([ 'post' ])
   },
   created () {
-    store.dispatch('fetchPost', this.postId)
+    this.fetchPost(this.postId)
   },
   methods: {
     ...mapActions([ 'fetchPost' ])
@@ -71,7 +71,7 @@ export default {
     padding: 20px;
     text-align: left;
   }
-  .board-view-page .router-link-active {
+  .board-view-page a {
     display: inline-block;
     padding: .5rem 1.75rem;
     background-color: #414141;

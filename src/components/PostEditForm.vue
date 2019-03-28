@@ -1,12 +1,16 @@
 <template>
   <form @submit.prevent="onSubmit">
     <fieldset>
+      <label>게시물 번호</label>
+      <input v-model="post.id" type="text" disabled>
+      <label>게시물 생성일</label>
+      <input v-model="post.createdAt" type="text" disabled>
       <label>제목</label>
-      <input v-model="title"
+      <input v-model="post.title"
              type="text"
              placeholder="게시물 제목을 입력해주세요." />
       <label>내용</label>
-      <textarea v-model="contents"
+      <textarea v-model="post.contents"
                 rows="5"
                 placeholder="게시물 내용을 입력해주세요.">
       </textarea>
@@ -19,13 +23,14 @@
 export default {
   name: 'PostEditForm',
   props: {
-    initTitle: {
-      type: String,
-      required: true
-    },
-    initContents: {
-      type: String,
-      required: true
+    post: {
+      type: Object,
+      validator (post) {
+        const isValidPostId = typeof post.id === 'number'
+        const isValidTitle = !!post.title && post.title.length
+        const isValidContents = post.contents && post.contents.length
+        return isValidPostId && isValidTitle && isValidContents
+      }
     }
   },
   data () {

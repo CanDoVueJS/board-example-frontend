@@ -13,7 +13,13 @@ export default {
   name: 'BoardView',
   props: {
     post: {
-      type: Object
+      type: Object,
+      validator (post) {
+        const isValidPostId = typeof post.id === 'number'
+        const isValidTitle = !!post.title && post.title.length
+        const isValidContents = post.contents && post.contents.length
+        return isValidPostId && isValidTitle && isValidContents
+      }
     }
   }
 }
