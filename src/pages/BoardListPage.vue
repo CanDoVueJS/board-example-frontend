@@ -38,6 +38,9 @@ export default {
   .board-list-page > div {
     background-color: #fff;
   }
+  .board-list-page > div table {
+    width: 100%;
+  }
   .board-list-page > div table thead {
     font-size: 14px;
     font-weight: normal;
