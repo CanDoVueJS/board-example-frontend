@@ -5,6 +5,7 @@ import Signup from '@/pages/Signup'
 import Signin from '@/pages/Signin'
 import BoardListPage from '@/pages/BoardListPage'
 import PostCreatePage from '@/pages/PostCreatePage'
+import PostEditPage from '@/pages/PostEditPage'
 import BoardViewPage from '@/pages/BoardViewPage'
 
 Vue.use(Router)
@@ -20,11 +21,14 @@ export default new Router({
       }
     },
     {
-      path: '/post/:index',
+      path: '/post/:postId',
       name: 'BoardViewPage',
       components: {
         header: AppHeader,
         default: BoardViewPage
+      },
+      props: {
+        default: true
       }
     },
     {
@@ -49,6 +53,17 @@ export default new Router({
       components: {
         header: AppHeader,
         default: PostCreatePage
+      }
+    },
+    {
+      path: '/post/edit/:postId',
+      name: 'PostEditPage',
+      components: {
+        header: AppHeader,
+        default: PostEditPage
+      },
+      props: {
+        default: true
       }
     }
   ]

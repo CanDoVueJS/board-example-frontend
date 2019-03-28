@@ -44,8 +44,8 @@ export default {
         return Promise.reject(err)
       })
   },
-  fetchPost ({ commit }, index) {
-    return api.get(`/posts/${index}`)
+  fetchPost ({ commit }, postId) {
+    return api.get(`/posts/${postId}`)
       .then(res => {
         commit(FETCH_POST, res.data)
       }).catch(err => {
