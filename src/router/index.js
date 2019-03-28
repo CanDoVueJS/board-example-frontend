@@ -6,6 +6,7 @@ import Signin from '@/pages/Signin'
 import BoardListPage from '@/pages/BoardListPage'
 import PostCreatePage from '@/pages/PostCreatePage'
 import PostEditPage from '@/pages/PostEditPage'
+import BoardViewPage from '@/pages/BoardViewPage'
 
 Vue.use(Router)
 
@@ -17,6 +18,17 @@ export default new Router({
       components: {
         header: AppHeader,
         default: BoardListPage
+      }
+    },
+    {
+      path: '/post/:postId',
+      name: 'BoardViewPage',
+      components: {
+        header: AppHeader,
+        default: BoardViewPage
+      },
+      props: {
+        default: true
       }
     },
     {
