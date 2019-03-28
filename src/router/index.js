@@ -5,6 +5,7 @@ import Signup from '@/pages/Signup'
 import Signin from '@/pages/Signin'
 import BoardListPage from '@/pages/BoardListPage'
 import PostCreatePage from '@/pages/PostCreatePage'
+import BoardViewPage from '@/pages/BoardViewPage'
 
 Vue.use(Router)
 
@@ -16,6 +17,14 @@ export default new Router({
       components: {
         header: AppHeader,
         default: BoardListPage
+      }
+    },
+    {
+      path: '/post/:index',
+      name: 'BoardViewPage',
+      components: {
+        header: AppHeader,
+        default: BoardViewPage
       }
     },
     {

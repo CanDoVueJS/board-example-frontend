@@ -3,7 +3,7 @@ import {
   SET_ACCESS_TOKEN,
   SET_MY_INFO,
   DESTROY_ACCESS_TOKEN,
-  DESTROY_MY_INFO, FETCH_POST_LIST
+  DESTROY_MY_INFO, FETCH_POST_LIST, FETCH_POST
 } from './mutation-types'
 
 export default {
@@ -40,6 +40,14 @@ export default {
     return api.get('/posts')
       .then(res => {
         commit(FETCH_POST_LIST, res.data)
+      }).catch(err => {
+        return Promise.reject(err)
+      })
+  },
+  fetchPost ({ commit }, index) {
+    return api.get(`/posts/${index}`)
+      .then(res => {
+        commit(FETCH_POST, res.data)
       }).catch(err => {
         return Promise.reject(err)
       })
