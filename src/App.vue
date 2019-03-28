@@ -42,6 +42,10 @@ export default {
   button {
     cursor: pointer;
   }
+  input:disabled {
+    background-color: lightgrey;
+    cursor: not-allowed;
+  }
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
