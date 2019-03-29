@@ -51,6 +51,10 @@ export default {
   },
   created () {
     this.fetchPost(this.postId)
+      .catch(err => {
+        alert(err.response.data.msg)
+        this.$router.back()
+      })
   }
 }
 </script>
