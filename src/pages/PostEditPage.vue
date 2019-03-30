@@ -50,7 +50,7 @@ export default {
     },
     ...mapActions([ 'fetchPost' ])
   },
-  beforeRouteEnter (to, from ,next) {
+  beforeRouteEnter (to, from, next) {
     store.dispatch('fetchPost', to.params.postId).then(res => {
       next()
     }).catch(err => {
