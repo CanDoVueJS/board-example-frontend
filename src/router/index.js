@@ -23,17 +23,6 @@ export default new Router({
       }
     },
     {
-      path: '/post/:postId',
-      name: 'BoardViewPage',
-      components: {
-        header: AppHeader,
-        default: BoardViewPage
-      },
-      props: {
-        default: true
-      }
-    },
-    {
       path: '/signup',
       name: 'Signup',
       components: {
@@ -55,6 +44,24 @@ export default new Router({
       components: {
         header: AppHeader,
         default: PostCreatePage
+      },
+      beforeEnter (to, from, next) {
+        const { isAuthorized } = store.getters
+        if (!isAuthorized) {
+          alert('로그인이 필요합니다!')
+          next(from)
+        }
+      }
+    },
+    {
+      path: '/post/:postId',
+      name: 'BoardViewPage',
+      components: {
+        header: AppHeader,
+        default: BoardViewPage
+      },
+      props: {
+        default: true
       }
     },
     {
@@ -68,6 +75,11 @@ export default new Router({
         default: true
       },
       beforeEnter (to, from, next) {
+        const { isAuthorized } = store.getters
+        if (!isAuthorized) {
+          alert('로그인이 필요합니다!')
+          next(from)
+        }
         store.dispatch('fetchPost', to.params.postId)
           .then(() => {
             next()
