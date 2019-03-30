@@ -49,7 +49,7 @@ export default new Router({
         const { isAuthorized } = store.getters
         if (!isAuthorized) {
           alert('로그인이 필요합니다!')
-          next(from)
+          next(false)
         }
       }
     },
@@ -78,7 +78,7 @@ export default new Router({
         const { isAuthorized } = store.getters
         if (!isAuthorized) {
           alert('로그인이 필요합니다!')
-          next(from)
+          next(false)
         }
         store.dispatch('fetchPost', to.params.postId)
           .then(() => {
@@ -88,11 +88,12 @@ export default new Router({
               next()
             } else {
               alert('게시물의 작성자만 게시물을 수정할 수 있습니다.')
+              next(false)
             }
           }).catch(err => {
             console.error(err)
             // alert(err.response.data.msg)
-            next(from)
+            next(false)
           })
       }
     }
