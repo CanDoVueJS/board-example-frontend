@@ -12,6 +12,7 @@
 <script>
 import PostEditForm from '@/components/PostEditForm'
 import api from '@/api'
+import store from '@/store'
 import { mapState, mapActions } from 'vuex'
 
 export default {
@@ -49,12 +50,13 @@ export default {
     },
     ...mapActions([ 'fetchPost' ])
   },
-  created () {
-    this.fetchPost(this.postId)
-      .catch(err => {
-        alert(err.response.data.msg)
-        this.$router.back()
-      })
+  beforeRouteEnter (to, from ,next) {
+    store.dispatch('fetchPost', to.params.postId).then(res => {
+      next()
+    }).catch(err => {
+      alert(err.response.data.msg)
+      this.$router.push(from)
+    })
   }
 }
 </script>
