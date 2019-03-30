@@ -7,6 +7,7 @@ import BoardListPage from '@/pages/BoardListPage'
 import PostCreatePage from '@/pages/PostCreatePage'
 import PostEditPage from '@/pages/PostEditPage'
 import BoardViewPage from '@/pages/BoardViewPage'
+import store from '@/store'
 
 Vue.use(Router)
 
@@ -57,7 +58,7 @@ export default new Router({
       }
     },
     {
-      path: '/post/edit/:postId',
+      path: '/post/:postId/edit',
       name: 'PostEditPage',
       components: {
         header: AppHeader,
@@ -65,6 +66,15 @@ export default new Router({
       },
       props: {
         default: true
+      },
+      beforeEnter (to, from, next) {
+        store.dispatch('fetchPost', to.params.postId)
+          .then(() => {
+            next()
+          }).catch(err => {
+            alert(err.response.data.msg)
+            next(from)
+          })
       }
     }
   ]
