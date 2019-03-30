@@ -8,17 +8,23 @@ import Cookies from 'js-cookie'
 
 Vue.config.productionTip = false
 
-// 쿠키에 저장된 토큰을 사용하여 인증
-const savedToken = Cookies.get('accessToken')
-if (savedToken) {
-  store.dispatch('signinByToken', savedToken)
+function init () {
+  // 쿠키에 저장된 토큰을 사용하여 인증
+  const savedToken = Cookies.get('accessToken')
+  if (savedToken) {
+    return store.dispatch('signinByToken', savedToken)
+  } else {
+    return Promise.resolve()
+  }
 }
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  store,
-  components: { App },
-  template: '<App/>'
+init().then(() => {
+  /* eslint-disable no-new */
+  new Vue({
+    el: '#app',
+    router,
+    store,
+    components: { App },
+    template: '<App/>'
+  })
 })
