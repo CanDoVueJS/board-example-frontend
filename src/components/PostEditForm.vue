@@ -6,11 +6,11 @@
       <label>게시물 생성일</label>
       <input v-model="post.createdAt" type="text" disabled>
       <label>제목</label>
-      <input v-model="post.title"
+      <input v-model="title"
              type="text"
              placeholder="게시물 제목을 입력해주세요." />
       <label>내용</label>
-      <textarea v-model="post.contents"
+      <textarea v-model="contents"
                 rows="5"
                 placeholder="게시물 내용을 입력해주세요.">
       </textarea>
@@ -46,8 +46,8 @@ export default {
     }
   },
   created () {
-    this.title = this.initTitle
-    this.contents = this.initContents
+    this.title = this.post.title
+    this.contents = this.post.contents
   }
 }
 </script>
