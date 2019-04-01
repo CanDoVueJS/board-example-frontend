@@ -12,7 +12,7 @@
 <script>
 import PostEditForm from '@/components/PostEditForm'
 import api from '@/api'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'PostEditPage',
@@ -46,8 +46,7 @@ export default {
             alert(err.response.data.msg)
           }
         })
-    },
-    ...mapActions([ 'fetchPost' ])
+    }
   }
 }
 </script>
