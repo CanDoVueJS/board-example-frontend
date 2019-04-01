@@ -4,12 +4,14 @@
     <board-view v-if="post" :post="post"/>
     <p v-else>게시글 불러오는 중...</p>
     <router-link :to="{ name: 'PostEditPage', params: { postId } }">수정</router-link>
+    <button @click="onDelete">삭제</button>
     <router-link :to="{ name: 'BoardListPage' }">목록</router-link>
   </div>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
 import BoardView from '@/components/BoardView'
+import api from '@/api'
 
 export default {
   name: 'BoardViewPage',
@@ -30,6 +32,22 @@ export default {
       })
   },
   methods: {
+    onDelete () {
+      const { id } = this.post
+      api.delete(`/posts/${id}`)
+        .then(res => {
+          alert('게시물이 성공적으로 삭제되었습니다.')
+          this.$router.push({ name: 'BoardListPage' })
+        })
+        .catch(err => {
+          if (err.response.status === 401) { // UnAuthorized
+            alert('로그인이 필요합니다.')
+            this.$router.push({ name: 'Signin' })
+          } else {
+            alert(err.response.data.msg)
+          }
+        })
+    },
     ...mapActions([ 'fetchPost' ])
   },
   components: { BoardView }
@@ -75,7 +93,7 @@ export default {
     padding: 20px;
     text-align: left;
   }
-  .board-view-page a {
+  .board-view-page a, .board-view-page button {
     display: inline-block;
     padding: .5rem 1.75rem;
     background-color: #414141;

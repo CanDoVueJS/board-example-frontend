@@ -39,7 +39,11 @@ export default {
     padding: 0;
     list-style: none;
   }
+  a {
+    font-size: 16px;
+  }
   button {
+    font-size: 16px;
     cursor: pointer;
   }
   input:disabled {
