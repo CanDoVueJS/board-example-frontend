@@ -49,7 +49,7 @@ export default new Router({
         const { isAuthorized } = store.getters
         if (!isAuthorized) {
           alert('로그인이 필요합니다!')
-          next(false)
+          next({ name: 'Signin' })
         }
       }
     },
@@ -78,7 +78,7 @@ export default new Router({
         const { isAuthorized } = store.getters
         if (!isAuthorized) {
           alert('로그인이 필요합니다!')
-          next(false)
+          next({ name: 'Signin' })
         }
         store.dispatch('fetchPost', to.params.postId)
           .then(() => {
