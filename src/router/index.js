@@ -51,6 +51,7 @@ export default new Router({
           alert('로그인이 필요합니다!')
           next({ name: 'Signin' })
         }
+        next()
       }
     },
     {
