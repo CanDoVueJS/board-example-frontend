@@ -6,12 +6,15 @@
     <router-link :to="{ name: 'PostEditPage', params: { postId } }">수정</router-link>
     <button @click="onDelete">삭제</button>
     <router-link :to="{ name: 'BoardListPage' }">목록</router-link>
+    <comment-list v-if="post" :comments="post.comments"/>
   </div>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
 import BoardView from '@/components/BoardView'
 import api from '@/api'
+
+import CommentList from '@/components/CommentList'
 
 export default {
   name: 'BoardViewPage',
@@ -50,7 +53,10 @@ export default {
     },
     ...mapActions([ 'fetchPost' ])
   },
-  components: { BoardView }
+  components: {
+    BoardView,
+    CommentList
+  }
 }
 </script>
 <style>
@@ -71,24 +77,24 @@ export default {
     text-align: center;
     margin: 1rem 0;
   }
-  .board-view-page > div > div {
+  .board-view-page .board-view > div {
     padding: 20px;
     text-align: left;
     background-color: #888;
     color: #fff;
     font-size: 14px;
   }
-  .board-view-page > div > div > h1 {
+  .board-view-page .board-view > div > h1 {
     font-size: 24px;
   }
-  .board-view-page > div > div > span {
+  .board-view-page .board-view > div > span {
     display: block;
     margin-bottom: 2px;
   }
-  .board-view-page > div > div > strong {
+  .board-view-page .board-view > div > strong {
     font-weight: normal;
   }
-  .board-view-page > div > p {
+  .board-view-page .board-view > p {
     margin-bottom: 20px;
     padding: 20px;
     text-align: left;
@@ -100,5 +106,50 @@ export default {
     border-radius: .25rem;
     color: #fff;
     text-decoration: none;
+  }
+  .board-view-page > ul {
+    text-align: left;
+    margin-top: 20px;
+    border-top: 1px solid #888;
+  }
+  .board-view-page > ul > li {
+    overflow: hidden;
+    padding: 20px;
+    border-bottom: 1px dotted #999;
+  }
+  .board-view-page > ul > li > strong {
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  .board-view-page > ul > li > span {
+    float: left;
+    font-size: 14px;
+    vertical-align: bottom;
+  }
+  .board-view-page > ul > li > p {
+    clear: both;
+  }
+  .comments {
+    position: relative;
+    margin-top: 20px;
+    padding-right: 100px;
+    overflow: hidden;
+  }
+  .comments textarea {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #666;
+    padding: 10px;
+  }
+  .comments button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 60px;
+    width: 96px;
+    background-color: #414141;
+    color: #fff;
+    font-size: 16px;
   }
 </style>

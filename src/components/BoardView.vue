@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="board-view">
     <div>
       <h1>{{ post.title }}</h1>
       <span>게시물 번호 {{ post.id }}</span>
