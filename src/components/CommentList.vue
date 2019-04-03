@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul v-if="comments.length > 0">
     <li v-for="comment in comments" :key="comment.id">
       <strong>{{ comment.user.name }}</strong><span>{{ comment.createdAt }}</span>
       <p>{{ comment.contents }}</p>
