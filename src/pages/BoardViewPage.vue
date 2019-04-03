@@ -6,12 +6,14 @@
     <router-link :to="{ name: 'PostEditPage', params: { postId } }">수정</router-link>
     <router-link :to="{ name: 'BoardListPage' }">목록</router-link>
     <comment-list v-if="post" :comments="post.comments"/>
+    <comment-form/>
   </div>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
 import BoardView from '@/components/BoardView'
 
+import CommentForm from '@/components/CommentForm'
 import CommentList from '@/components/CommentList'
 
 export default {
@@ -37,6 +39,7 @@ export default {
   },
   components: {
     BoardView,
+    CommentForm,
     CommentList
   }
 }
