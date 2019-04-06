@@ -6,7 +6,7 @@
     <router-link :to="{ name: 'PostEditPage', params: { postId } }">수정</router-link>
     <router-link :to="{ name: 'BoardListPage' }">목록</router-link>
     <comment-list v-if="post" :comments="post.comments"/>
-    <comment-form/>
+    <comment-form @submit="onCommentSubmit"/>
   </div>
 </template>
 <script>
@@ -25,7 +25,10 @@ export default {
     }
   },
   computed: {
-    ...mapState([ 'post' ])
+    ...mapState([
+      'post',
+      'me'
+    ])
   },
   created () {
     this.fetchPost(this.postId)
@@ -35,7 +38,21 @@ export default {
       })
   },
   methods: {
-    ...mapActions([ 'fetchPost' ])
+    onCommentSubmit (comment) {
+      if (!this.me) {
+        alert('로그인이 필요합니다!')
+        this.$router.push({ name: 'Signin' })
+      } else {
+        this.createComment(comment)
+          .then(() => {
+            alert('댓글이 성공적으로 작성되었습니다.')
+          })
+      }
+    },
+    ...mapActions([
+      'fetchPost',
+      'createComment'
+    ])
   },
   components: {
     BoardView,
