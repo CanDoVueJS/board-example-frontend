@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapGetters, mapState, mapActions } from 'vuex'
 import BoardView from '@/components/BoardView'
 
 import api from '@/api'
@@ -28,9 +28,11 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'isAuthorized'
+    ]),
     ...mapState([
-      'post',
-      'me'
+      'post'
     ])
   },
   created () {
@@ -42,13 +44,16 @@ export default {
   },
   methods: {
     onCommentSubmit (comment) {
-      if (!this.me) {
+      if (!this.isAuthorized) {
         alert('로그인이 필요합니다!')
         this.$router.push({ name: 'Signin' })
       } else {
         this.createComment(comment)
           .then(() => {
             alert('댓글이 성공적으로 작성되었습니다.')
+          })
+          .catch(err => {
+            alert(err.response.data.msg)
           })
       }
     },
