@@ -70,7 +70,7 @@ export default {
     text-align: left;
   }
   .board-list-page > a {
-    margin-top: 20px;
+    margin-top: 13px;
     float: right;
     padding: .5rem 1.75rem;
     background-color: #414141;
