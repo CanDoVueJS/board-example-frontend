@@ -2,6 +2,7 @@
   <div class="board-list-page">
     <h1>포스트 게시글</h1>
     <board-list :posts="posts"/>
+    <router-link :to="{ name: 'PostCreatePage' }">글쓰기</router-link>
   </div>
 </template>
 <script>
@@ -67,5 +68,14 @@ export default {
   }
   .board-list-page > div table tbody td:nth-child(2) {
     text-align: left;
+  }
+  .board-list-page > a {
+    margin-top: 20px;
+    float: right;
+    padding: .5rem 1.75rem;
+    background-color: #414141;
+    border-radius: .25rem;
+    color: #fff;
+    text-decoration: none;
   }
 </style>
