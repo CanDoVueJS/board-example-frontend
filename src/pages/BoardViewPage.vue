@@ -14,6 +14,8 @@
 import { mapState, mapActions } from 'vuex'
 import BoardView from '@/components/BoardView'
 
+import api from '@/api'
+
 import CommentForm from '@/components/CommentForm'
 import CommentList from '@/components/CommentList'
 
@@ -50,27 +52,26 @@ export default {
           })
       }
     },
-    ...mapActions([
-      'fetchPost',
-      'createComment'
-    ])
     onDelete () {
-      const { id } = this.post
+      const {id} = this.post
       api.delete(`/posts/${id}`)
         .then(res => {
           alert('게시물이 성공적으로 삭제되었습니다.')
-          this.$router.push({ name: 'BoardListPage' })
+          this.$router.push({name: 'BoardListPage'})
         })
         .catch(err => {
           if (err.response.status === 401) { // UnAuthorized
             alert('로그인이 필요합니다.')
-            this.$router.push({ name: 'Signin' })
+            this.$router.push({name: 'Signin'})
           } else {
             alert(err.response.data.msg)
           }
         })
     },
-    ...mapActions([ 'fetchPost' ])
+    ...mapActions([
+      'fetchPost',
+      'createComment'
+    ])
   },
   components: {
     BoardView,
