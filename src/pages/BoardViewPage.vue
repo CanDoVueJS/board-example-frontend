@@ -138,32 +138,32 @@ export default {
     padding: 20px;
     border-bottom: 1px dotted #999;
   }
-  .board-view-page > ul > li > strong {
+  .board-view-page > .comments .comment-view > strong {
     float: left;
     margin-right: 5px;
     margin-bottom: 5px;
   }
-  .board-view-page > ul > li > span {
+  .board-view-page > .comments .comment-view > span {
     float: left;
     font-size: 14px;
     vertical-align: bottom;
   }
-  .board-view-page > ul > li > p {
+  .board-view-page > .comments .comment-view > p {
     clear: both;
   }
-  .comments {
+  .comment-form {
     position: relative;
     margin-top: 20px;
     padding-right: 100px;
     overflow: hidden;
   }
-  .comments textarea {
+  .comment-form textarea {
     width: 100%;
     height: 60px;
     border: 1px solid #666;
     padding: 10px;
   }
-  .comments button {
+  .comment-form button {
     position: absolute;
     right: 0;
     top: 0;
@@ -172,5 +172,23 @@ export default {
     background-color: #414141;
     color: #fff;
     font-size: 16px;
+  }
+  .comments button {
+    background-color: transparent;
+    color: black;
+    font-size: 14px;
+    padding: 0 0 0 10px;
+    margin: 0 0 0 10px;
+    border-left: 1px solid black;
+    border-radius: 0;
+    transition: opacity 0.3s ease-in-out;
+    outline: 0;
+  }
+  .comments button:hover {
+    opacity: 0.6;
+  }
+  .comments textarea {
+    display: block;
+    border: 1px solid black;
   }
 </style>
