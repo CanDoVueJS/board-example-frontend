@@ -1,8 +1,7 @@
 <template>
-  <ul>
+  <ul class="comments">
     <li v-for="comment in comments" :key="comment.id">
-      <strong>{{ comment.user.name }}</strong><span>{{ comment.createdAt }}</span>
-      <p>{{ comment.contents }}</p>
+      <comment-view :comment="comment" />
     </li>
     <li v-if="comments.length <= 0">
       입력된 댓글이 없습니다.
@@ -10,8 +9,13 @@
   </ul>
 </template>
 <script>
+import CommentView from '@/components/CommentView'
+
 export default {
   name: 'CommentList',
+  components: {
+    CommentView
+  },
   props: {
     comments: {
       type: Array,

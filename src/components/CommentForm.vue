@@ -1,5 +1,5 @@
 <template>
-  <div class="comments">
+  <div class="comment-form">
     <textarea v-model="comment"
               rows="5"
               placeholder="댓글을 입력해주세요."/>
