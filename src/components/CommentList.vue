@@ -1,7 +1,7 @@
 <template>
   <ul class="comments">
     <li v-for="comment in comments" :key="comment.id">
-      <comment-view :comment="comment" />
+      <comment-item :comment="comment" />
     </li>
     <li v-if="comments.length <= 0">
       입력된 댓글이 없습니다.
@@ -9,12 +9,12 @@
   </ul>
 </template>
 <script>
-import CommentView from '@/components/CommentView'
+import CommentItem from '@/components/CommentItem'
 
 export default {
   name: 'CommentList',
   components: {
-    CommentView
+    CommentItem
   },
   props: {
     comments: {

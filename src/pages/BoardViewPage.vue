@@ -138,18 +138,37 @@ export default {
     padding: 20px;
     border-bottom: 1px dotted #999;
   }
-  .board-view-page > .comments .comment-view > strong {
+  .board-view-page > .comments .comment-item > strong {
     float: left;
     margin-right: 5px;
     margin-bottom: 5px;
   }
-  .board-view-page > .comments .comment-view > span {
+  .board-view-page > .comments .comment-item > span {
     float: left;
     font-size: 14px;
     vertical-align: bottom;
   }
-  .board-view-page > .comments .comment-view > p {
+  .board-view-page > .comments .comment-item > p {
     clear: both;
+  }
+  .board-view-page > .comments .comment-item button:hover {
+    opacity: 0.6;
+  }
+  .board-view-page > .comments .comment-item textarea {
+     display: inline-block;
+     border: 1px solid #666;
+     width: 80%;
+     padding: 10px;
+    height: 60px;
+  }
+  .board-view-page > .comments .comment-item textarea + button {
+    display: inline-block;
+    border: 1px solid #666;
+    padding: 10px;
+    width: 19%;
+    height: 60px;
+    background-color: #414141;
+    color: white;
   }
   .comment-form {
     position: relative;
@@ -183,12 +202,5 @@ export default {
     border-radius: 0;
     transition: opacity 0.3s ease-in-out;
     outline: 0;
-  }
-  .comments button:hover {
-    opacity: 0.6;
-  }
-  .comments textarea {
-    display: block;
-    border: 1px solid black;
   }
 </style>
