@@ -25,6 +25,7 @@ export default {
   props: {
     post: {
       type: Object,
+      required: true,
       validator (post) {
         const isValidPostId = typeof post.id === 'number'
         const isValidTitle = !!post.title && post.title.length
