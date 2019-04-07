@@ -7,13 +7,16 @@
     <button @click="onDelete">삭제</button>
     <router-link :to="{ name: 'BoardListPage' }">목록</router-link>
     <comment-list v-if="post" :comments="post.comments"/>
+    <comment-form @submit="onCommentSubmit"/>
   </div>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
 import BoardView from '@/components/BoardView'
+
 import api from '@/api'
 
+import CommentForm from '@/components/CommentForm'
 import CommentList from '@/components/CommentList'
 
 export default {
@@ -25,7 +28,10 @@ export default {
     }
   },
   computed: {
-    ...mapState([ 'post' ])
+    ...mapState([
+      'post',
+      'me'
+    ])
   },
   created () {
     this.fetchPost(this.postId)
@@ -35,26 +41,41 @@ export default {
       })
   },
   methods: {
+    onCommentSubmit (comment) {
+      if (!this.me) {
+        alert('로그인이 필요합니다!')
+        this.$router.push({ name: 'Signin' })
+      } else {
+        this.createComment(comment)
+          .then(() => {
+            alert('댓글이 성공적으로 작성되었습니다.')
+          })
+      }
+    },
     onDelete () {
-      const { id } = this.post
+      const {id} = this.post
       api.delete(`/posts/${id}`)
         .then(res => {
           alert('게시물이 성공적으로 삭제되었습니다.')
-          this.$router.push({ name: 'BoardListPage' })
+          this.$router.push({name: 'BoardListPage'})
         })
         .catch(err => {
           if (err.response.status === 401) { // UnAuthorized
             alert('로그인이 필요합니다.')
-            this.$router.push({ name: 'Signin' })
+            this.$router.push({name: 'Signin'})
           } else {
             alert(err.response.data.msg)
           }
         })
     },
-    ...mapActions([ 'fetchPost' ])
+    ...mapActions([
+      'fetchPost',
+      'createComment'
+    ])
   },
   components: {
     BoardView,
+    CommentForm,
     CommentList
   }
 }

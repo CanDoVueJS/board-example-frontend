@@ -4,7 +4,7 @@ import {
   SET_MY_INFO,
   DESTROY_ACCESS_TOKEN,
   DESTROY_MY_INFO,
-  FETCH_POST_LIST
+  FETCH_POST_LIST, UPDATE_COMMENT
 } from './mutation-types'
 import api from '@/api'
 import Cookies from 'js-cookie'
@@ -36,5 +36,8 @@ export default {
   },
   [FETCH_POST] (state, post) {
     state.post = post
+  },
+  [UPDATE_COMMENT] (state, payload) {
+    state.post.comments.push(payload)
   }
 }
