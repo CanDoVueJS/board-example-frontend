@@ -9,7 +9,7 @@
         </button>
       </strong>
       <ul v-if="isActive">
-        <li><button @click="signout">로그아웃</button></li>
+        <li><button @click="onClickSignout">로그아웃</button></li>
       </ul>
     </div>
     <div v-else>
@@ -34,6 +34,10 @@ export default {
   methods: {
     toggle () {
       this.isActive = !this.isActive
+    },
+    onClickSignout () {
+      this.signout()
+      this.$router.push({ name: 'BoardListPage' })
     },
     ...mapActions([ 'signout' ])
   }
