@@ -143,6 +143,9 @@ export default {
     padding: 20px;
     border-bottom: 1px dotted #999;
   }
+  .board-view-page > .comments .comment-view {
+    position: relative;
+  }
   .board-view-page > .comments .comment-view > strong {
     float: left;
     margin-right: 5px;
@@ -178,13 +181,36 @@ export default {
     color: #fff;
     font-size: 16px;
   }
+  .board-view-page > .comments .comment-view > ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+  }
+  .board-view-page > .comments .comment-view > ul li {
+    position: relative;
+    float: left;
+    padding: 0 10px 0 0;
+    margin: 0 10px 0 0;
+  }
+  .board-view-page > .comments .comment-view > ul li:after {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    content: "|";
+  }
+  .board-view-page > .comments .comment-view > ul li:last-child {
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .board-view-page > .comments .comment-view > ul li:last-child:after {
+    content: "";
+  }
   .comments button {
     background-color: transparent;
     color: black;
-    font-size: 14px;
-    padding: 0 0 0 10px;
-    margin: 0 0 0 10px;
-    border-left: 1px solid black;
+    font-size: 12px;
+    padding: 0;
     border-radius: 0;
     transition: opacity 0.3s ease-in-out;
     outline: 0;
