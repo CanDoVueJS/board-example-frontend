@@ -9,7 +9,7 @@
       <button @click="onEdit">수정완료</button>
     </div>
     <p v-else>{{ comment.contents }}</p>
-    <ul>
+    <ul v-if="isMyComment">
       <li><button type="button" @click="toggleEditMode">{{ editButtonText }}</button></li>
       <li><button type="button" @click="onDelete">삭제</button></li>
     </ul>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'CommentItem',
   props: {
@@ -38,9 +40,13 @@ export default {
     }
   },
   computed: {
+    isMyComment () {
+      return this.comment.user.id === this.me.id
+    },
     editButtonText () {
       return this.isEditing ? '수정 취소' : '수정'
-    }
+    },
+    ...mapState([ 'me' ])
   },
   methods: {
     toggleEditMode () {
