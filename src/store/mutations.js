@@ -4,7 +4,9 @@ import {
   SET_MY_INFO,
   DESTROY_ACCESS_TOKEN,
   DESTROY_MY_INFO,
-  FETCH_POST_LIST, UPDATE_COMMENT
+  FETCH_POST_LIST,
+  UPDATE_COMMENT,
+  DELETE_COMMENT
 } from './mutation-types'
 import api from '@/api'
 import Cookies from 'js-cookie'
@@ -39,5 +41,9 @@ export default {
   },
   [UPDATE_COMMENT] (state, payload) {
     state.post.comments.push(payload)
+  },
+  [DELETE_COMMENT] (state, commentId) {
+    const targetIndex = state.post.comments.findIndex(v => v.id === commentId)
+    state.post.comments.splice(targetIndex, 1)
   }
 }
