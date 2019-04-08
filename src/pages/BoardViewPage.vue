@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapGetters, mapState, mapActions } from 'vuex'
 import BoardView from '@/components/BoardView'
 
 import api from '@/api'
@@ -28,9 +28,11 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'isAuthorized'
+    ]),
     ...mapState([
-      'post',
-      'me'
+      'post'
     ])
   },
   created () {
@@ -42,13 +44,16 @@ export default {
   },
   methods: {
     onCommentSubmit (comment) {
-      if (!this.me) {
+      if (!this.isAuthorized) {
         alert('로그인이 필요합니다!')
         this.$router.push({ name: 'Signin' })
       } else {
         this.createComment(comment)
           .then(() => {
             alert('댓글이 성공적으로 작성되었습니다.')
+          })
+          .catch(err => {
+            alert(err.response.data.msg)
           })
       }
     },
@@ -138,37 +143,67 @@ export default {
     padding: 20px;
     border-bottom: 1px dotted #999;
   }
+  .board-view-page > .comments .comment-item {
+    position: relative;
+  }
   .board-view-page > .comments .comment-item > strong {
-    float: left;
     margin-right: 5px;
-    margin-bottom: 5px;
   }
   .board-view-page > .comments .comment-item > span {
-    float: left;
     font-size: 14px;
     vertical-align: bottom;
   }
-  .board-view-page > .comments .comment-item > p {
-    clear: both;
+  .board-view-page > .comments .comment-item > p,
+  .board-view-page > .comments .comment-item textarea,
+  .board-view-page > .comments .comment-item textarea + button {
+    margin-top: .5rem;
   }
   .board-view-page > .comments .comment-item button:hover {
     opacity: 0.6;
   }
   .board-view-page > .comments .comment-item textarea {
-     display: inline-block;
-     border: 1px solid #666;
-     width: 80%;
-     padding: 10px;
+    display: inline-block;
+    border: 1px solid #666;
+    width: 85%;
+    padding: 10px;
     height: 60px;
+    vertical-align: top;
   }
   .board-view-page > .comments .comment-item textarea + button {
     display: inline-block;
     border: 1px solid #666;
     padding: 10px;
-    width: 19%;
+    width: 14%;
     height: 60px;
     background-color: #414141;
     color: white;
+    border-radius: .25rem;
+    font-size: 1rem;
+  }
+  .board-view-page > .comments .comment-item > ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+  }
+  .board-view-page > .comments .comment-item > ul li {
+    position: relative;
+    float: left;
+    padding: 0 10px 0 0;
+    margin: 0 10px 0 0;
+  }
+  .board-view-page > .comments .comment-item > ul li:after {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    content: "|";
+  }
+  .board-view-page > .comments .comment-item > ul li:last-child {
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .board-view-page > .comments .comment-item > ul li:last-child:after {
+    content: "";
   }
   .comment-form {
     position: relative;
@@ -195,10 +230,8 @@ export default {
   .comments button {
     background-color: transparent;
     color: black;
-    font-size: 14px;
-    padding: 0 0 0 10px;
-    margin: 0 0 0 10px;
-    border-left: 1px solid black;
+    font-size: 12px;
+    padding: 0;
     border-radius: 0;
     transition: opacity 0.3s ease-in-out;
     outline: 0;

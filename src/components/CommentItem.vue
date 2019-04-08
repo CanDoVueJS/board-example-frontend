@@ -1,15 +1,18 @@
 <template>
   <div class="comment-item">
     <strong>{{ comment.user.name }}</strong><span>{{ comment.createdAt }}</span>
-    <button @click="onClickEdit">수정</button>
     <div v-if="isEditing">
       <textarea
         v-model="editMessage"
         rows="3">
       </textarea>
-      <button>수정완료</button>
+      <button @click="onEdit">수정완료</button>
     </div>
     <p v-else>{{ comment.contents }}</p>
+    <ul>
+      <li><button type="button" @click="toggleEditMode">{{ editButtonText }}</button></li>
+      <li><button type="button" @click="onDelete">삭제</button></li>
+    </ul>
   </div>
 </template>
 
@@ -30,13 +33,27 @@ export default {
   },
   data () {
     return {
-      isEditing: true,
+      isEditing: false,
       editMessage: ''
     }
   },
+  computed: {
+    editButtonText () {
+      return this.isEditing ? '수정 취소' : '수정'
+    }
+  },
   methods: {
-    onClickEdit () {
+    toggleEditMode () {
       this.isEditing = !this.isEditing
+    },
+    onDelete () {
+      const { id } = this.comment
+      this.$emit('delete', id)
+    },
+    onEdit () {
+      this.isEditing = false
+      const { id } = this.comment
+      this.$emit('edit', { id, comment: this.editMessage })
     }
   },
   created () {
