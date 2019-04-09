@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   name: 'CommentItem',
@@ -41,12 +41,13 @@ export default {
   },
   computed: {
     isMyComment () {
-      return this.comment.user.id === this.me.id
+      return this.isAuthorized && this.comment.user.id === this.me.id
     },
     editButtonText () {
       return this.isEditing ? '수정 취소' : '수정'
     },
-    ...mapState([ 'me' ])
+    ...mapState([ 'me' ]),
+    ...mapGetters([ 'isAuthorized' ])
   },
   methods: {
     toggleEditMode () {
