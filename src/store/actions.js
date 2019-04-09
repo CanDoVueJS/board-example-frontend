@@ -3,7 +3,7 @@ import {
   SET_ACCESS_TOKEN,
   SET_MY_INFO,
   DESTROY_ACCESS_TOKEN,
-  DESTROY_MY_INFO, FETCH_POST_LIST, FETCH_POST, UPDATE_COMMENT, DELETE_COMMENT
+  DESTROY_MY_INFO, FETCH_POST_LIST, FETCH_POST, UPDATE_COMMENT, DELETE_COMMENT, EDIT_COMMENT
 } from './mutation-types'
 
 export default {
@@ -54,6 +54,13 @@ export default {
     return api.delete(`/posts/${postId}/comments/${commentId}`)
       .then(res => {
         commit(DELETE_COMMENT, commentId)
+      })
+  },
+  editComment ({ commit, state }, { commentId, comment }) {
+    const postId = state.post.id
+    return api.put(`/posts/${postId}/comments/${commentId}`, { contents: comment })
+      .then(res => {
+        commit(EDIT_COMMENT, res.data)
       })
   }
 }

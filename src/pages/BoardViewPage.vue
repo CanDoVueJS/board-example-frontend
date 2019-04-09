@@ -143,21 +143,67 @@ export default {
     padding: 20px;
     border-bottom: 1px dotted #999;
   }
-  .board-view-page > .comments .comment-view {
+  .board-view-page > .comments .comment-item {
     position: relative;
   }
-  .board-view-page > .comments .comment-view > strong {
-    float: left;
+  .board-view-page > .comments .comment-item > strong {
     margin-right: 5px;
-    margin-bottom: 5px;
   }
-  .board-view-page > .comments .comment-view > span {
-    float: left;
+  .board-view-page > .comments .comment-item > span {
     font-size: 14px;
     vertical-align: bottom;
   }
-  .board-view-page > .comments .comment-view > p {
-    clear: both;
+  .board-view-page > .comments .comment-item > p,
+  .board-view-page > .comments .comment-item textarea,
+  .board-view-page > .comments .comment-item textarea + button {
+    margin-top: .5rem;
+  }
+  .board-view-page > .comments .comment-item button:hover {
+    opacity: 0.6;
+  }
+  .board-view-page > .comments .comment-item textarea {
+    display: inline-block;
+    border: 1px solid #666;
+    width: 85%;
+    padding: 10px;
+    height: 60px;
+    vertical-align: top;
+  }
+  .board-view-page > .comments .comment-item textarea + button {
+    display: inline-block;
+    border: 1px solid #666;
+    padding: 10px;
+    width: 14%;
+    height: 60px;
+    background-color: #414141;
+    color: white;
+    border-radius: .25rem;
+    font-size: 1rem;
+  }
+  .board-view-page > .comments .comment-item > ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+  }
+  .board-view-page > .comments .comment-item > ul li {
+    position: relative;
+    float: left;
+    padding: 0 10px 0 0;
+    margin: 0 10px 0 0;
+  }
+  .board-view-page > .comments .comment-item > ul li:after {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    content: "|";
+  }
+  .board-view-page > .comments .comment-item > ul li:last-child {
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .board-view-page > .comments .comment-item > ul li:last-child:after {
+    content: "";
   }
   .comment-form {
     position: relative;
@@ -181,31 +227,6 @@ export default {
     color: #fff;
     font-size: 16px;
   }
-  .board-view-page > .comments .comment-view > ul {
-    position: absolute;
-    right: 0;
-    top: 0;
-    overflow: hidden;
-  }
-  .board-view-page > .comments .comment-view > ul li {
-    position: relative;
-    float: left;
-    padding: 0 10px 0 0;
-    margin: 0 10px 0 0;
-  }
-  .board-view-page > .comments .comment-view > ul li:after {
-    position: absolute;
-    right: 0;
-    top: 2px;
-    content: "|";
-  }
-  .board-view-page > .comments .comment-view > ul li:last-child {
-    margin-right: 0;
-    padding-right: 0;
-  }
-  .board-view-page > .comments .comment-view > ul li:last-child:after {
-    content: "";
-  }
   .comments button {
     background-color: transparent;
     color: black;
@@ -214,12 +235,5 @@ export default {
     border-radius: 0;
     transition: opacity 0.3s ease-in-out;
     outline: 0;
-  }
-  .comments button:hover {
-    opacity: 0.6;
-  }
-  .comments textarea {
-    display: block;
-    border: 1px solid black;
   }
 </style>
