@@ -46,25 +46,32 @@ export default {
     editButtonText () {
       return this.isEditing ? '수정 취소' : '수정'
     },
+    isValidComment () {
+      return this.editMessage.length > 0 && this.editMessage.length < 256
+    },
     ...mapState([ 'me' ]),
     ...mapGetters([ 'isAuthorized' ])
   },
   methods: {
     toggleEditMode () {
       this.isEditing = !this.isEditing
+      if (this.isEditing) {
+        this.editMessage = this.comment.contents
+      }
     },
     onDelete () {
       const { id } = this.comment
       this.$emit('delete', id)
     },
     onEdit () {
-      this.isEditing = false
-      const { id } = this.comment
-      this.$emit('edit', { id, comment: this.editMessage })
+      if (this.isValidComment) {
+        this.isEditing = false
+        const { id } = this.comment
+        this.$emit('edit', { id, comment: this.editMessage })
+      } else {
+        alert('댓글은 1자 이상 255자 이하여야 합니다')
+      }
     }
-  },
-  created () {
-    this.editMessage = this.comment.contents
   }
 }
 </script>
