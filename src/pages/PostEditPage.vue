@@ -1,10 +1,9 @@
 <template>
   <div class="post-edit-page">
     <h3>게시물 수정</h3>
-    <post-edit-form
-      v-if="post"
-      :post="post"
-      @submit="onSubmit" />
+    <post-edit-form v-if="post"
+                    :post="post"
+                    @submit="onSubmit" />
     <p v-else>게시물 불러오는 중...</p>
   </div>
 </template>
