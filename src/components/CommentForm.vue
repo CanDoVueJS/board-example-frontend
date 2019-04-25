@@ -3,7 +3,7 @@
     <textarea v-model="comment"
               rows="5"
               placeholder="댓글을 입력해주세요."/>
-    <button type="button" @click="onSubmit">생성</button>
+    <button type="button" @click="onSubmit">등록</button>
   </div>
 </template>
 <script>
