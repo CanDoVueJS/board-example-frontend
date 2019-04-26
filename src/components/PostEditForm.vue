@@ -2,9 +2,9 @@
   <form @submit.prevent="onSubmit">
     <fieldset>
       <label>게시물 번호</label>
-      <input v-model="post.id" type="text" disabled>
+      <input :value="post.id" type="text" disabled>
       <label>게시물 생성일</label>
-      <input v-model="post.createdAt" type="text" disabled>
+      <input :value="post.createdAt" type="text" disabled>
       <label>제목</label>
       <input v-model="title"
              type="text"
