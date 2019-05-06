@@ -3,7 +3,8 @@
     <h3>게시물 수정</h3>
     <post-edit-form v-if="post"
                     :post="post"
-                    @submit="onSubmit" />
+                    @submit="onSubmit"
+                    @cancel="goPostViewPage" />
     <p v-else>게시물 불러오는 중...</p>
   </div>
 </template>
@@ -47,6 +48,12 @@ export default {
             alert(err.response.data.msg)
           }
         })
+    },
+    goPostViewPage () {
+      this.$router.push({
+        name: 'BoardViewPage',
+        params: { postId: this.postId }
+      })
     }
   }
 }

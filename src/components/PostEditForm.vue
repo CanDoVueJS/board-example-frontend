@@ -15,6 +15,7 @@
                 placeholder="게시물 내용을 입력해주세요.">
       </textarea>
       <button type="submit">수정하기</button>
+      <button @click.prevent="onCancel">취소</button>
     </fieldset>
   </form>
 </template>
@@ -44,6 +45,9 @@ export default {
     onSubmit () {
       const { title, contents } = this
       this.$emit('submit', { title, contents })
+    },
+    onCancel () {
+      this.$emit('cancel')
     }
   },
   created () {
