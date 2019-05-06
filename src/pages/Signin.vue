@@ -64,7 +64,7 @@ export default {
   .sign-in-page form fieldset button[type="submit"] {
     width: 100%;
     margin-bottom: 8px;
-    padding: .5rem .75rem;
+    padding: .75rem;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
@@ -76,7 +76,7 @@ export default {
     background-color: #181818;
   }
   .sign-in-page > p {
-    font-size: 14px;
+    font-size: 16px;
     text-align: left;
 
   }
