@@ -58,7 +58,7 @@ export default {
   }
   .app-header h1 {
     position: absolute;
-    left: 10px;
+    left: 20px;
     top: 12px;
     font-size: 26px;
   }
