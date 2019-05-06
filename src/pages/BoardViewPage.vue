@@ -105,9 +105,8 @@ export default {
   .board-view-page .board-view > div {
     padding: 20px;
     text-align: left;
-    background-color: #888;
-    color: #fff;
     font-size: 14px;
+    border-bottom: 2px solid #868e96;
   }
   .board-view-page .board-view > div > h1 {
     font-size: 24px;
@@ -115,9 +114,11 @@ export default {
   .board-view-page .board-view > div > span {
     display: block;
     margin-bottom: 2px;
+    color: #868e96;
   }
   .board-view-page .board-view > div > strong {
     font-weight: normal;
+    color: #868e96;
   }
   .board-view-page .board-view > p {
     margin-bottom: 20px;
@@ -131,16 +132,20 @@ export default {
     border-radius: .25rem;
     color: #fff;
     text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  .board-view-page > a:hover, .board-view-page > button:hover {
+    background-color: #181818;
   }
   .board-view-page > ul {
     text-align: left;
     margin-top: 20px;
-    border-top: 1px solid #888;
+    border-top: 1px solid #ced4da;
   }
   .board-view-page > ul > li {
     overflow: hidden;
     padding: 20px;
-    border-bottom: 1px dotted #999;
+    border-bottom: 1px solid #ced4da;
   }
   .board-view-page > .comments .comment-item {
     position: relative;
@@ -157,16 +162,14 @@ export default {
   .board-view-page > .comments .comment-item textarea + button {
     margin-top: .5rem;
   }
-  .board-view-page > .comments .comment-item button:hover {
-    opacity: 0.6;
-  }
   .board-view-page > .comments .comment-item textarea {
     display: inline-block;
-    border: 1px solid #666;
+    border: 1px solid #868e96;
     width: 85%;
     padding: 10px;
     height: 60px;
     vertical-align: top;
+    font-size: 14px;
   }
   .board-view-page > .comments .comment-item textarea + button {
     display: inline-block;
@@ -178,6 +181,10 @@ export default {
     color: white;
     border-radius: .25rem;
     font-size: 1rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  .board-view-page > .comments .comment-item textarea + button:hover {
+    background-color: #181818;
   }
   .board-view-page > .comments .comment-item > ul {
     position: absolute;
@@ -196,6 +203,7 @@ export default {
     right: 0;
     top: 2px;
     content: "|";
+    color: #868e96;
   }
   .board-view-page > .comments .comment-item > ul li:last-child {
     margin-right: 0;
@@ -203,6 +211,12 @@ export default {
   }
   .board-view-page > .comments .comment-item > ul li:last-child:after {
     content: "";
+  }
+  .board-view-page > .comments .comment-item > ul li button {
+    color: #868e96;
+  }
+  .board-view-page > .comments .comment-item > ul li button:hover {
+    color: #2c3e50;
   }
   .comment-form {
     position: relative;
@@ -213,8 +227,9 @@ export default {
   .comment-form textarea {
     width: 100%;
     height: 60px;
-    border: 1px solid #666;
+    border: 1px solid #868e96;
     padding: 10px;
+    font-size: 14px;
   }
   .comment-form button {
     position: absolute;
@@ -225,6 +240,10 @@ export default {
     background-color: #414141;
     color: #fff;
     font-size: 16px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  .comment-form button:hover {
+    background-color: #181818;
   }
   .comments button {
     background-color: transparent;
