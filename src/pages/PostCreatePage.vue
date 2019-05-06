@@ -38,18 +38,21 @@ export default {
 
 <style>
   .board-create-page {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    padding: 45px 60px 60px;
+    width: 940px;
+    padding: 40px 30px 60px;
+    margin: 60px auto 0;
     background-color: #fff;
     border: 1px solid #ededed;
   }
-  .board-create-page h3 {
+  .board-create-page:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .board-create-page h1 {
     margin-bottom: 20px;
     text-align: left;
+    font-size: 24px;
   }
   .board-create-page form fieldset input {
     margin-bottom: 8px;
@@ -73,18 +76,24 @@ export default {
   .board-create-page form fieldset input[type="text"] {
     height: calc(1.5em + .75rem + 2px);
   }
-  .board-create-page form fieldset button[type="submit"] {
-    width: 100%;
+  .board-create-page form fieldset button[type="submit"], .board-create-page form fieldset a {
+    float: right;
+    height: 38px;
+    box-sizing: border-box;
     margin: 16px 0 8px;
-    padding: .5rem .75rem;
+    padding: .5rem 1.75rem;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
     border-radius: .25rem;
     background-color: #414141;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    text-decoration: none;
   }
-  .board-create-page form fieldset button[type="submit"]:hover {
+  .board-create-page form fieldset a {
+    margin-right: 4px;
+  }
+  .board-create-page form fieldset button[type="submit"]:hover, .board-create-page form fieldset a:hover {
     background-color: #181818;
   }
 </style>
