@@ -88,9 +88,9 @@ export default {
     border-radius: .25rem;
     background-color: #414141;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    text-decoration: none;
   }
   .board-create-page form fieldset a {
+    text-decoration: none;
     margin-right: 4px;
   }
   .board-create-page form fieldset button[type="submit"]:hover, .board-create-page form fieldset a:hover {
