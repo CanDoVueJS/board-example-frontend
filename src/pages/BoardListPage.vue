@@ -31,8 +31,13 @@ export default {
     background-color: #fff;
     box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.2);
   }
+  .board-list-page:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
   .board-list-page h1 {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     text-align: left;
     font-size: 24px;
   }
@@ -77,5 +82,10 @@ export default {
     border-radius: .25rem;
     color: #fff;
     text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   }
+  .board-list-page > a:hover {
+    background-color: #181818;
+  }
+
 </style>
