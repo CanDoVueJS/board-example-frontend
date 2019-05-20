@@ -1,5 +1,5 @@
 <template>
-  <div class="board-create-page">
+  <div class="post-create-page">
     <h1>게시물 작성하기</h1>
     <post-create-form @submit="onSubmit"/>
   </div>
@@ -19,7 +19,7 @@ export default {
         .then(res => {
           alert('게시물이 성공적으로 작성되었습니다.')
           this.$router.push({
-            name: 'BoardViewPage',
+            name: 'PostViewPage',
             params: { postId: res.data.id.toString() }
           })
         })

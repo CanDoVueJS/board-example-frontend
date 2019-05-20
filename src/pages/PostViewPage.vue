@@ -1,17 +1,17 @@
 <template>
-  <div class="board-view-page">
-    <board-view v-if="post" :post="post"/>
+  <div class="post-view-page">
+    <post-view v-if="post" :post="post"/>
     <p v-else>게시글 불러오는 중...</p>
     <router-link :to="{ name: 'PostEditPage', params: { postId } }">수정</router-link>
     <button @click="onDelete">삭제</button>
-    <router-link :to="{ name: 'BoardListPage' }">목록</router-link>
+    <router-link :to="{ name: 'PostListPage' }">목록</router-link>
     <comment-list v-if="post" :comments="post.comments"/>
     <comment-form @submit="onCommentSubmit"/>
   </div>
 </template>
 <script>
 import { mapGetters, mapState, mapActions } from 'vuex'
-import BoardView from '@/components/BoardView'
+import PostView from '@/components/PostView'
 
 import api from '@/api'
 
@@ -19,7 +19,7 @@ import CommentForm from '@/components/CommentForm'
 import CommentList from '@/components/CommentList'
 
 export default {
-  name: 'BoardViewPage',
+  name: 'PostViewPage',
   props: {
     postId: {
       type: String,
@@ -61,7 +61,7 @@ export default {
       api.delete(`/posts/${id}`)
         .then(res => {
           alert('게시물이 성공적으로 삭제되었습니다.')
-          this.$router.push({name: 'BoardListPage'})
+          this.$router.push({name: 'PostListPage'})
         })
         .catch(err => {
           if (err.response.status === 401) { // UnAuthorized
@@ -78,7 +78,7 @@ export default {
     ])
   },
   components: {
-    BoardView,
+    PostView,
     CommentForm,
     CommentList
   }
