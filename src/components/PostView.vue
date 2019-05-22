@@ -1,5 +1,5 @@
 <template>
-  <div class="board-view">
+  <div class="post-view">
     <div>
       <h1>{{ post.title }}</h1>
       <span>게시물 번호 {{ post.id }}</span>
@@ -10,7 +10,7 @@
 </template>
 <script>
 export default {
-  name: 'BoardView',
+  name: 'PostView',
   props: {
     post: {
       type: Object,

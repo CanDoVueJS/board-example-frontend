@@ -11,7 +11,7 @@
                 placeholder="게시물 내용을 입력해주세요.">
       </textarea>
       <button type="submit">작성하기</button>
-      <router-link :to="{ name: 'BoardListPage' }">취소</router-link>
+      <router-link :to="{ name: 'PostListPage' }">취소</router-link>
     </fieldset>
   </form>
 </template>

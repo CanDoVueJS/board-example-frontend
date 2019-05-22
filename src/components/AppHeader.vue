@@ -39,7 +39,7 @@ export default {
       this.signout()
       alert('로그아웃 되었습니다.')
       this.isActive = false
-      this.$router.push({ name: 'BoardListPage' })
+      this.$router.push({ name: 'PostListPage' })
     },
     ...mapActions([ 'signout' ])
   }
